@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <UsingTask TaskName="EmbedWin32ResourcesTask.AddResources" AssemblyFile="$(MSBuildThisFileDirectory)EmbedWin32ResourcesTask.dll"/>
+  <Target Name="EmbedWin32ResourcesTask" AfterTargets="AfterBuild">
+    <Message Text="Assembly file path = $(TargetPath)" />
+    <EmbedWin32ResourcesTask.AddResources AssemblyPath="$(TargetPath)" ProjectPath="$(ProjectDir)" />
+  </Target>
+</Project>
