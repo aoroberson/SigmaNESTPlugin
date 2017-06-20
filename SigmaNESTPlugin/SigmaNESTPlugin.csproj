@@ -126,7 +126,6 @@
     <None Include="PlugInResources\PlugInINIFile.ini" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="license.txt" />
     <Content Include="PlugInResources\PlugInICON.png" />
     <Content Include="PlugInResources\PlugInXMLFile.xml" />
   </ItemGroup>
