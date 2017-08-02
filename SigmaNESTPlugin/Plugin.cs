@@ -407,6 +407,91 @@ namespace SigmaNESTPlugin
             MessageBox.Show("SigmaNEST Plugin - OnClearWorkspace Event");
         }
 
+        /// <summary>
+        /// Called before a part is deleted from the SigmaNEST workspace
+        /// </summary>
+        /// <param name="APart">Name of the part to be deleted</param>
+        //[DllExport]
+        public void BeforeDeletePartFromWorkspace(ISNPartObj APart)
+        {
+            MessageBox.Show("SigmaNEST Plugin - BeforeDeletePartFromWorkspace Event");
+        }
+
+        /// <summary>
+        /// Called when Develop Shape Workspace ribbon button in SigmaNEST is pressed
+        /// </summary>
+        //[DllExport]
+        public void OnNewDevelopShape()
+        {
+            MessageBox.Show("SigmaNEST Plugin - OnNewDevelopShape Event");
+        }
+
+        /// <summary>
+        /// Called prior to nesting
+        /// </summary>
+        /// <param name="ATaskObj"></param>
+        //[DllExport]
+        public void BeforeNest(ISNTaskObj ATaskObj)
+        {
+            MessageBox.Show("SigmaNEST Plugin - BeforeNest Event");
+        }
+
+        /// <summary>
+        /// Called after nesting
+        /// </summary>
+        /// <param name="ATaskObj"></param>
+        //[DllExport]
+        public void AfterNest(ISNTaskObj ATaskObj)
+        {
+            MessageBox.Show("SigmaNEST Plugin - AfterNest Event");
+        }
+
+        /// <summary>
+        /// Called before a workspace is cleared
+        /// </summary>
+        //[DllExport]
+        public void BeforeClearWorkspace()
+        {
+            MessageBox.Show("SigmaNEST Plugin - BeforeClearWorkspace Event");
+        }
+
+        /// <summary>
+        /// Called after a workspace is loaded.
+        /// </summary>
+        //[DllExport]
+        public void BeforeLoadWorkspace()
+        {
+            MessageBox.Show("SigmaNEST Plugin - BeforeClearWorkspace Event");
+        }
+
+
+        /// <summary>
+        /// Called before any SigmaNEST action event. Executed action name and paraeter are passed in
+        /// as inputs. Return value "CanContinue", return false to allow SigmaNEST action to continue
+        /// or true to cancel/exit current SigmaNEST action code.
+        /// </summary>
+        /// <param name="aName"></param>
+        /// <param name="aParam"></param>
+        /// <returns></returns>
+        //[DllExport]
+        public bool OnActionMenu([MarshalAs(UnmanagedType.LPWStr)] string aName, [MarshalAs(UnmanagedType.LPWStr)] string aParam)
+        {
+            MessageBox.Show("SigmaNEST Plugin - OnActionMenu Event: " + aName);
+            return false;
+        }
+
+        /// <summary>
+        /// Called after any SigmaNEST action event. Executed action name and paraeter are passed in
+        /// as inputs.
+        /// </summary>
+        /// <param name="aName"></param>
+        /// <param name="aParam"></param>
+        //[DllExport]
+        public void OnActionMenuDone([MarshalAs(UnmanagedType.LPWStr)] string aName, [MarshalAs(UnmanagedType.LPWStr)] string aParam)
+        {
+            MessageBox.Show("SigmaNEST Plugin - OnActionMenuDone Event: " + aName);
+        }
+
         #endregion
     }
 }
